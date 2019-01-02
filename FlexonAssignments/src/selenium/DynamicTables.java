@@ -19,17 +19,19 @@ public class DynamicTables {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		//since SREI company is not available, choosing Federal Bank
-		driver.findElement(By.xpath("//a[contains(@href,'//money.rediff.com/companies/federal-bank/14030062')]"));
+		String companyName = driver.findElement(By.xpath("//a[contains(@href,'//money.rediff.com/companies/federal-bank/14030062')]")).getText();
 		
 		String prevClose = driver.findElement(By.xpath("//a[contains(@href,'//money.rediff.com/companies/federal-bank/14030062')]/../..//td[3]")).getText();
 		String currentPrice = driver.findElement(By.xpath("//a[contains(@href,'//money.rediff.com/companies/federal-bank/14030062')]/../..//td[4]")).getText();
 		String changePercentage = driver.findElement(By.xpath("//a[contains(@href,'//money.rediff.com/companies/federal-bank/14030062')]/../..//td[5]")).getText();
 		
-		System.out.println(prevClose);
-		System.out.println(currentPrice);
-		System.out.println(changePercentage);
+		System.out.println("As of today, company is positioned at 8th");
+		System.out.println("Company Name: " + companyName);
+		System.out.println("Previous closing price: " + prevClose);
+		System.out.println("Current price: " + currentPrice);
+		System.out.println("Change is percentage: " + changePercentage);
 		
-		
+		driver.close();
 
 	}
 
